@@ -16,6 +16,10 @@ def main():
     conn = sqlite3.connect(DATABASE_PATH)
 
     for table_name, df in datasets.items():
+
+     if table_name == "financial_ratios":
+        print(df.columns)
+
         df.to_sql(
             table_name,
             conn,

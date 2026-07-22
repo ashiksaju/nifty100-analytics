@@ -25,6 +25,22 @@ from src.analytics.cashflow_kpis import (
 
 DATABASE = "data/database/nifty100.db"
 
+def compute_cagr(values, years):
+    values = [v for v in values if v is not None]
+
+    if len(values) < years + 1:
+        return None
+
+    start = values[-(years + 1)]
+    end = values[-1]
+
+    if start <= 0 or end <= 0:
+        return None
+
+    cagr = ((end / start) ** (1 / years) - 1) * 100
+
+    return round(cagr, 2)
+
 def load_tables():
     """
     Load required tables from SQLite.
@@ -48,7 +64,7 @@ def load_tables():
     )
 
     cash_flow = pd.read_sql(
-        "SELECT * FROM cash_flow",
+        "SELECT * FROM cash_flow" ,
         conn
     )
 
@@ -240,7 +256,6 @@ def main():
     for company in master["company_id"].unique():
 
        
-
         company_df = master[
         (master["company_id"] == company)
         & (~master["year"].str.contains("TTM", na=False))
@@ -250,22 +265,46 @@ def main():
 
 
     
-    company_df["year_num"] = (
-        company_df["year"]
-        .str.extract(r"(\d{4})")
-        .astype(float)
-    )
+        company_df["year_num"] = (
+            company_df["year"]
+            .str.extract(r"(\d{4})")
+            .astype(float)
+        )
 
-    company_df = company_df.sort_values("year_num")
-    company_df.drop(columns=["year_num"], inplace=True)
+        company_df = company_df.sort_values("year_num")
+        company_df.drop(columns=["year_num"], inplace=True)
 
-    
-    
+        
+        
 
-    revenue_cagr = compute_cagr(
+        revenue_cagr = compute_cagr(
         company_df["sales"].tolist(),
         5,
     )
+
+        pat_cagr = compute_cagr(
+        company_df["net_profit"].tolist(),
+        5,
+    )
+
+        eps_cagr = compute_cagr(
+        company_df["eps"].tolist(),
+        5,
+    )
+        master.loc[
+        master["company_id"] == company,
+        "revenue_cagr_5yr",
+        ] = revenue_cagr
+
+        master.loc[
+        master["company_id"] == company,
+        "pat_cagr_5yr",
+        ] = pat_cagr
+
+        master.loc[
+        master["company_id"] == company,
+        "eps_cagr_5yr",
+        ] = eps_cagr
 
 
 
@@ -277,7 +316,7 @@ def main():
         print("Sales List:", company_df["sales"].tolist())
         print("Length:", len(company_df["sales"].tolist()))
 
-    revenue_cagr, _ = compute_cagr(
+    revenue_cagr = compute_cagr(
         company_df["sales"].tolist(),
         5,
     )
@@ -285,12 +324,12 @@ def main():
     if company == "ABB":
        print("Revenue CAGR:", revenue_cagr)
 
-    pat_cagr, _ = compute_cagr(
+    pat_cagr = compute_cagr(
         company_df["net_profit"].tolist(),
         5,
     )
 
-    eps_cagr, _ = compute_cagr(
+    eps_cagr = compute_cagr(
         company_df["eps"].tolist(),
         5,
     )
@@ -375,28 +414,19 @@ def main():
     print("ratio_edge_cases.log created successfully.")
 
 
-
     conn = sqlite3.connect(DATABASE)
 
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT COUNT(*) FROM financial_ratios")
-
-    count = cursor.fetchone()[0]
-
-    print("\n===== financial_ratios ROW COUNT =====")
-    print(count)
-
-    master.to_sql(
-    "financial_ratios",
-     conn,
-     if_exists="replace",
-     index=False,
-
+    print(
+    master.loc[
+        master["company_id"] == "ABB",
+        [
+            "year",
+            "revenue_cagr_5yr",
+            "pat_cagr_5yr",
+            "eps_cagr_5yr",
+        ],
+    ].tail()
 )
-
-    
-    conn = sqlite3.connect(DATABASE)
 
     master.to_sql(
     "financial_ratios",
@@ -404,6 +434,26 @@ def main():
     if_exists="replace",
     index=False,
 )
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    SELECT COUNT(*)
+    FROM financial_ratios
+    """)
+
+    count = cursor.fetchone()[0]
+
+    print("\n===== financial_ratios ROW COUNT =====")
+    print(count)
+
+    cursor.execute("""
+    SELECT name
+    FROM sqlite_master
+    WHERE type='table';
+    """)
+
+    print(cursor.fetchall())
 
     conn.close()
 

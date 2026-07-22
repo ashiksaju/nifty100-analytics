@@ -37,8 +37,18 @@ def load_excel(file_name):
     if not file_path.exists():
         raise FileNotFoundError(f"{file_name} not found.")
 
-    return pd.read_excel(file_path, skiprows=1)
+    # These files have NO Bluestock title row
+    if file_name in [
+        "peer_groups.xlsx",
+        "financial_ratios.xlsx",
+    ]:
+        return pd.read_excel(file_path)
 
+    # All other Excel files have the Bluestock title row
+    return pd.read_excel(
+        file_path,
+        skiprows=1,
+    )
 
 def load_all_data():
     datasets = {}
