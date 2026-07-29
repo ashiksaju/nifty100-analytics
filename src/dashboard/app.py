@@ -9,14 +9,14 @@ st.set_page_config(
 )
 
 PAGES = {
-    "🏠 Home": "01_home",
-    "🏢 Company Profile": "02_profile",
-    "🔍 Screener": "03_screener",
-    "👥 Peer Comparison": "04_peers",
-    "📈 Trend Analysis": "05_trends",
-    "🏭 Sector Analysis": "06_sectors",
-    "💰 Capital Allocation": "07_capital",
-    "📄 Annual Reports": "08_reports",
+    "HOME": "01_home",
+    "COMPANY PROFILE": "02_profile",
+    "SCREENER": "03_screener",
+    "PEER COMPARISON": "04_peers",
+    "TREND ANALYSIS": "05_trends",
+    "SECTOR ANALYSIS": "06_sectors",
+    "CAPITAL ALLOCATION": "07_capital",
+    "ANNUAL REPORTS": "08_reports",
 }
 
 st.sidebar.title("Navigation")
