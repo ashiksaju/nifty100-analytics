@@ -1,0 +1,53 @@
+company_id,previous_pattern,current_pattern
+ADANIENSOL,Mixed,Shareholder Returns
+ADANIENT,Shareholder Returns,Mixed
+ADANIGREEN,Shareholder Returns,Mixed
+ASIANPAINT,Reinvestor,Shareholder Returns
+AXISBANK,Mixed,Growth Funded by Debt
+BANKBARODA,Pre-Revenue,Growth Funded by Debt
+BEL,Liquidating Assets,Shareholder Returns
+BOSCHLTD,Liquidating Assets,Shareholder Returns
+BPCL,Reinvestor,Shareholder Returns
+CANBK,Growth Funded by Debt,Reinvestor
+DABUR,Reinvestor,Shareholder Returns
+DIVISLAB,Shareholder Returns,Reinvestor
+DLF,Reinvestor,Mixed
+DRREDDY,Shareholder Returns,Reinvestor
+GAIL,Mixed,Shareholder Returns
+GODREJCP,Reinvestor,Mixed
+HAL,Shareholder Returns,Reinvestor
+HAVELLS,Liquidating Assets,Shareholder Returns
+HDFCBANK,Mixed,Liquidating Assets
+HDFCLIFE,Mixed,Shareholder Returns
+HEROMOTOCO,Reinvestor,Shareholder Returns
+HINDUNILVR,Reinvestor,Shareholder Returns
+ICICIBANK,Growth Funded by Debt,Mixed
+ICICIGI,Shareholder Returns,Reinvestor
+ICICIPRULI,Reinvestor,Unknown
+INDUSINDBK,Growth Funded by Debt,Pre-Revenue
+IOC,Reinvestor,Shareholder Returns
+IRFC,Distress Signal,Shareholder Returns
+ITC,Reinvestor,Shareholder Returns
+JINDALSTEL,Shareholder Returns,Mixed
+KOTAKBANK,Growth Funded by Debt,Mixed
+LICI,Shareholder Returns,Reinvestor
+LODHA,Liquidating Assets,Mixed
+LTIM,Reinvestor,Shareholder Returns
+MARUTI,Reinvestor,Shareholder Returns
+MOTHERSON,Shareholder Returns,Mixed
+NESTLEIND,Reinvestor,Shareholder Returns
+PIDILITIND,Reinvestor,Shareholder Returns
+PNB,Mixed,Growth Funded by Debt
+RELIANCE,Mixed,Shareholder Returns
+SHRIRAMFIN,Distress Signal,Growth Funded by Debt
+SUNPHARMA,Mixed,Shareholder Returns
+TATACONSUM,Shareholder Returns,Mixed
+TATAPOWER,Mixed,Shareholder Returns
+TATASTEEL,Reinvestor,Shareholder Returns
+TCS,Liquidating Assets,Shareholder Returns
+TITAN,Mixed,Reinvestor
+TORNTPHARM,Mixed,Shareholder Returns
+UNIONBANK,Reinvestor,Shareholder Returns
+UNITDSPR,Reinvestor,Shareholder Returns
+ZOMATO,Unknown,Reinvestor
+ZYDUSLIFE,Liquidating Assets,Reinvestor

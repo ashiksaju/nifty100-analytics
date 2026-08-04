@@ -248,6 +248,7 @@ def main():
     axis=1,
 )
     
+    
     master["revenue_cagr_5yr"] = None
     master["pat_cagr_5yr"] = None
     master["eps_cagr_5yr"] = None
@@ -388,6 +389,7 @@ def main():
         "capex_cr",
         "capex_label",
         "fcf_conversion_rate",
+        
     ]
     ].to_csv(
     "output/capital_allocation.csv",
