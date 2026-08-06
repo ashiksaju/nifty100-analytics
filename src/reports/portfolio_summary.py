@@ -13,6 +13,7 @@ from reportlab.platypus import (
     Paragraph,
     Spacer,
     PageBreak,
+    KeepTogether,
 )
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -84,6 +85,9 @@ def create_portfolio_summary():
 )
 
     styles = getSampleStyleSheet()
+    styles["Title"].spaceAfter = 6
+    styles["Title"].spaceBefore = 0
+    styles["Title"].leading = 24
 
     elements = []
 
@@ -94,53 +98,43 @@ def create_portfolio_summary():
         # -----------------------------
         # Company Name
         # -----------------------------
-
         company_name = company["company_name"]
 
         if pd.isna(company_name):
             company_name = company["company_id"]
 
-        elements.append(
-            Paragraph(
-                str(company_name),
-                styles["Title"],
-            )
-        )
-
-        # -----------------------------
-        # Ticker
-        # -----------------------------
+        
+        title_style = styles["Title"]
+        title_style.alignment = 1   # Center
 
         elements.append(
             Paragraph(
-                f"<b>Ticker :</b> {company['company_id']}",
-                styles["Heading2"],
-            )
-        )   
+            str(company_name),
+            title_style,
+    )
+)
 
-        # -----------------------------
-        # Sector
-        # -----------------------------
+        elements.append(
+            Paragraph(
+                f"<b>Ticker:</b> {company['company_id']}",
+                styles["Normal"],
+    )
+)
 
         sector = sectors[
             sectors["company_id"] == company["company_id"]
-        ]
+]
 
         if not sector.empty:
-
             elements.append(
                 Paragraph(
-                    f"<b>Sector :</b> {sector.iloc[0]['broad_sector']}",
+                    f"<b>Sector:</b> {sector.iloc[0]['broad_sector']}",
                     styles["Normal"],
                 )
-            )   
-
-        elements.append(
-            Spacer(
-                1,
-                0.04 * inch,
             )
-        )
+    
+
+        elements.append(Spacer(1, 0.05 * inch))
 
         # -----------------------------
         # KPI TABLE
@@ -156,7 +150,7 @@ def create_portfolio_summary():
 
             ["Net Margin", f"{company['net_profit_margin_pct']:.2f}%"],
 
-            ["Debt / Equity", f"{company['debt_to_equity']:.2f}"],
+            ["Debt / Equity", "N/A" if pd.isna(company["debt_to_equity"]) else f"{company['debt_to_equity']:.2f}"],
 
             ["Asset Turnover", f"{company['asset_turnover']:.2f}"],
 
@@ -166,7 +160,9 @@ def create_portfolio_summary():
 
         table = Table(
         kpi_data,
-        colWidths=[2.8 * inch, 1.2 * inch],
+        colWidths=[2.1 * inch, 0.9 * inch],
+        rowHeights=[0.22 * inch] * len(kpi_data),
+        
 )
 
         table.setStyle(
@@ -176,15 +172,15 @@ def create_portfolio_summary():
                 ("TEXTCOLOR", (0,0), (-1,0), colors.white),
                 ("BACKGROUND", (0,1), (-1,-1), colors.whitesmoke),
 
-                ("TOPPADDING", (0,0), (-1,-1), 3),
-                ("BOTTOMPADDING", (0,0), (-1,-1), 3),
+                ("TOPPADDING", (0,0), (-1,-1), 0),
+                ("BOTTOMPADDING", (0,0), (-1,-1), 0),
             ])
         )
 
-        elements.append(table)
+    
 
         elements.append(
-            Spacer(1, 0.08 * inch)
+            Spacer(1, 0.03 * inch)
         )
         # -----------------------------
         # TRENDS
@@ -198,13 +194,12 @@ def create_portfolio_summary():
             ]
             .sort_values("year")
         )
+        
+        
+        
+        
 
-        elements.append(
-            Paragraph(
-                "<b>Business Trends</b>",
-                styles["Heading3"],
-            )
-        )
+        
 
         if len(history) >= 2:
 
@@ -258,30 +253,48 @@ def create_portfolio_summary():
 
             trend_table = Table(
             trend_data,
-            colWidths=[2.8 * inch, 1.2 * inch],
+            colWidths=[2.1 * inch, 0.9 * inch],
+            rowHeights=[0.22 * inch] * len(trend_data),
+            
 )
-
             trend_table.setStyle(
             TableStyle([
             ("GRID", (0,0), (-1,-1), 0.5, colors.grey),
             ("BACKGROUND", (0,0), (-1,0), colors.lightgrey),
             ("FONTNAME", (0,0), (-1,0), "Helvetica-Bold"),
             ("ALIGN", (1,1), (1,-1), "CENTER"),
-            ("TOPPADDING", (0,0), (-1,-1), 3),
-            ("BOTTOMPADDING", (0,0), (-1,-1), 3),
+            ("TOPPADDING", (0,0), (-1,-1), 0),
+            ("BOTTOMPADDING", (0,0), (-1,-1), 0),
     ])
 )
 
-            elements.append(trend_table)
+            
 
         else:
 
             elements.append(
-                Paragraph(
-                    "Not enough historical data.",
-                    styles["Normal"],
-                )
-            )
+            Paragraph(
+                "Not enough historical data.",
+                styles["Normal"],
+    )
+)
+        combined_table = Table(
+            [[table, trend_table]],
+            colWidths=[3.15 * inch, 3.15 * inch],
+)
+
+        combined_table.setStyle(
+            TableStyle([
+        ("VALIGN", (0, 0), (0, 0), "TOP"),
+        ("VALIGN", (1, 0), (1, 0), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+    ])
+)
+
+        elements.append(combined_table)      
 
         elements.append(PageBreak())
 
