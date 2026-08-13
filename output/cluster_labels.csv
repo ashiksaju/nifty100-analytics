@@ -1,0 +1,93 @@
+company_id,cluster_id,cluster_name,distance_from_centroid
+ABB,0,High-Quality Compounders,0.6354356802056726
+ADANIENSOL,0,High-Quality Compounders,1.3243415947038504
+ADANIENT,0,High-Quality Compounders,1.3408332446376092
+ADANIGREEN,3,Distressed or Turnaround,2.5091267489284674
+ADANIPORTS,1,Defensive Dividend Payers,1.377766588188973
+ADANIPOWER,0,High-Quality Compounders,1.103720195687036
+AMBUJACEM,0,High-Quality Compounders,0.9124084691937786
+APOLLOHOSP,0,High-Quality Compounders,0.5304098962161696
+ASIANPAINT,0,High-Quality Compounders,0.371443447187362
+ATGL,0,High-Quality Compounders,1.3479341078802398
+AXISBANK,3,Distressed or Turnaround,0.8975910300270101
+BAJAJ-AUTO,0,High-Quality Compounders,0.6415283776391523
+BAJAJFINSV,3,Distressed or Turnaround,1.0258368301924832
+BAJAJHLDNG,1,Defensive Dividend Payers,2.445284733859287
+BAJFINANCE,3,Distressed or Turnaround,1.6037611089761608
+BANKBARODA,3,Distressed or Turnaround,1.804998417236281
+BEL,2,Value Cyclicals,0.7605954549738299
+BHARTIARTL,1,Defensive Dividend Payers,1.2839449935324068
+BHEL,0,High-Quality Compounders,2.3895100286955793
+BOSCHLTD,0,High-Quality Compounders,0.9624976337694332
+BPCL,0,High-Quality Compounders,0.5314611070035716
+BRITANNIA,0,High-Quality Compounders,1.6059616073437553
+CANBK,3,Distressed or Turnaround,2.707813175622767
+CHOLAFIN,3,Distressed or Turnaround,0.9211814456975995
+CIPLA,4,Emerging Growth,0.0
+COALINDIA,1,Defensive Dividend Payers,1.127498080143596
+DABUR,0,High-Quality Compounders,0.8886030193391231
+DIVISLAB,0,High-Quality Compounders,0.7635920265830881
+DLF,0,High-Quality Compounders,2.4561051729828414
+DMART,0,High-Quality Compounders,1.3320456540354444
+DRREDDY,0,High-Quality Compounders,1.2565988656943945
+EICHERMOT,0,High-Quality Compounders,0.5095935735080781
+GAIL,0,High-Quality Compounders,0.355764554252069
+GODREJCP,0,High-Quality Compounders,0.6887508321415325
+GRASIM,0,High-Quality Compounders,0.7713023179194041
+HAL,2,Value Cyclicals,0.7605954549738252
+HAVELLS,0,High-Quality Compounders,0.9315257252531827
+HCLTECH,0,High-Quality Compounders,0.46391068728738394
+HDFCBANK,3,Distressed or Turnaround,0.5898385340102641
+HDFCLIFE,1,Defensive Dividend Payers,1.3414895627887033
+HEROMOTOCO,1,Defensive Dividend Payers,1.7131078827213788
+HINDALCO,1,Defensive Dividend Payers,0.6164903382837328
+HINDUNILVR,1,Defensive Dividend Payers,0.7328295811393155
+ICICIBANK,3,Distressed or Turnaround,0.5786766301729875
+ICICIGI,1,Defensive Dividend Payers,0.7391916119562784
+ICICIPRULI,1,Defensive Dividend Payers,2.2998118854209073
+INDIGO,1,Defensive Dividend Payers,2.4317204721540726
+INDUSINDBK,3,Distressed or Turnaround,0.6617936192106673
+INFY,0,High-Quality Compounders,0.3751879859519894
+IOC,0,High-Quality Compounders,0.5825552852821627
+IRCTC,0,High-Quality Compounders,1.3428821383322578
+IRFC,3,Distressed or Turnaround,1.8467177429845665
+ITC,0,High-Quality Compounders,0.8959152095872122
+JINDALSTEL,0,High-Quality Compounders,1.3676002980849888
+JIOFIN,1,Defensive Dividend Payers,0.7698200945274867
+JSWENERGY,0,High-Quality Compounders,1.3979123630200316
+JSWSTEEL,0,High-Quality Compounders,0.6204128743709537
+KOTAKBANK,1,Defensive Dividend Payers,1.3420088684243945
+LICI,0,High-Quality Compounders,2.100001110492058
+LODHA,0,High-Quality Compounders,2.116973589993942
+LT,0,High-Quality Compounders,0.7702351889452124
+LTIM,0,High-Quality Compounders,2.6275499948590815
+M&M,0,High-Quality Compounders,0.8391207739419382
+MARUTI,0,High-Quality Compounders,0.34059538198453676
+MOTHERSON,0,High-Quality Compounders,0.6298033116503756
+NAUKRI,0,High-Quality Compounders,0.8781991167449944
+NESTLEIND,0,High-Quality Compounders,0.5337234352948373
+NHPC,0,High-Quality Compounders,2.014789555335489
+NTPC,0,High-Quality Compounders,0.47545544726403277
+ONGC,0,High-Quality Compounders,0.6047741267069243
+PFC,3,Distressed or Turnaround,1.2815131605790036
+PIDILITIND,0,High-Quality Compounders,0.4677615433506801
+PNB,3,Distressed or Turnaround,1.3740218610528416
+POWERGRID,1,Defensive Dividend Payers,1.5248328034277487
+RECLTD,3,Distressed or Turnaround,2.025287550928983
+RELIANCE,0,High-Quality Compounders,0.2507240913217929
+SBILIFE,0,High-Quality Compounders,1.9955821674019592
+SBIN,0,High-Quality Compounders,1.9244487220403879
+SHREECEM,0,High-Quality Compounders,0.309766945569064
+SHRIRAMFIN,3,Distressed or Turnaround,1.3876431656887875
+SIEMENS,0,High-Quality Compounders,1.418032645990652
+SUNPHARMA,0,High-Quality Compounders,1.1122048174393835
+TATACONSUM,0,High-Quality Compounders,1.7255906532296557
+TATAMOTORS,0,High-Quality Compounders,0.5886108398959367
+TATAPOWER,0,High-Quality Compounders,0.8373653522397803
+TATASTEEL,0,High-Quality Compounders,0.6199600271626973
+TCS,0,High-Quality Compounders,0.35351218308184
+TECHM,0,High-Quality Compounders,0.6228798360297397
+TITAN,0,High-Quality Compounders,1.49514153306985
+TORNTPHARM,0,High-Quality Compounders,0.7596807299735301
+TRENT,0,High-Quality Compounders,3.417879746332123
+TVSMOTOR,0,High-Quality Compounders,1.2102495282008252

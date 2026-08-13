@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "NIFTY100 Analytics API",
+    "description": "Postman collection for NIFTY100 Analytics API - Day 40",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Screener",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/screener",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "screener"]
+        }
+      }
+    },
+    {
+      "name": "Sectors",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/sectors",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "sectors"]
+        }
+      }
+    },
+    {
+      "name": "Sector Companies",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/sectors/Financials/companies",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "sectors", "Financials", "companies"]
+        }
+      }
+    },
+    {
+      "name": "Peer Group",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/peers/Private%20Banks",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "peers", "Private Banks"]
+        }
+      }
+    },
+    {
+      "name": "Peer Comparison",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/companies/SBIN/peers/compare",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "companies", "SBIN", "peers", "compare"]
+        }
+      }
+    },
+    {
+      "name": "Market Cap History",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/market-cap/ABB",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "market-cap", "ABB"]
+        }
+      }
+    },
+    {
+      "name": "Portfolio Statistics",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/portfolio/stats",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "portfolio", "stats"]
+        }
+      }
+    },
+    {
+      "name": "Company Documents",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/v1/companies/ABB/documents",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "companies", "ABB", "documents"]
+        }
+      }
+    }
+  ]
+}
